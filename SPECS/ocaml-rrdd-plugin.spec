@@ -43,9 +43,11 @@ developing applications that use %{name}.
 %autosetup -p1
 
 %build
+eval $(opam config env --root=/usr/lib/opamroot)
 make
 
 %install
+eval $(opam config env --root=/usr/lib/opamroot)
 mkdir -p %{buildroot}/%{_bindir}
 mkdir -p %{build_ocaml_libdir}
 mkdir -p %{build_ocaml_docdir}
