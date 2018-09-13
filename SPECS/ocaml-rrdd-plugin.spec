@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
 Name:           ocaml-rrdd-plugin
-Version:        1.2.0
-Release:        6%{?dist}
+Version:        1.3.0
+Release:        7%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
 Source0:        https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.2.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.2.0#/ocaml-rrdd-plugin-1.2.0.tar.gz) = 5057336ac39971ff4c62e21e067bd0a0d7719707
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.3.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.3.0#/ocaml-rrdd-plugin-1.3.0.tar.gz) = 6b22047f1357f33e7b4467c4db900f2189c09134
 BuildRequires:  ocaml-ocamldoc
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
@@ -80,6 +80,11 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Fri May 04 2018 Christian Lindig <christian.lindig@citrix.com> - 1.3.0-1
+- CP-26583: Remove API call labels for PPX port of Rrdd
+- CP-26583: Remove rpc <-> string conversion for PPX port
+- Strip whitespace
+
 * Wed Apr 04 2018 Marcello Seri <marcello.seri@citrix.com> - 1.2.0-6
 - Update SPEC file to get rid of rpmbuild warnings
 
