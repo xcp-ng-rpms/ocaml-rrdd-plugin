@@ -1,13 +1,17 @@
 %define debug_package %{nil}
 
 Name:           ocaml-rrdd-plugin
-Version:        1.3.0
-Release:        7%{?dist}
+Version:        1.8.0
+Release:        1%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
-Source0:        https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.3.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.3.0#/ocaml-rrdd-plugin-1.3.0.tar.gz) = 6b22047f1357f33e7b4467c4db900f2189c09134
+
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz
+
+
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz) = 96334bf654e27be27a85980584effa7b0bc71b6a
+
 BuildRequires:  ocaml-ocamldoc
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
@@ -21,6 +25,7 @@ BuildRequires:  ocaml-rrd-transport-devel
 Plugin library for the XenServer RRD daemon.
 
 %package        devel
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz) = 96334bf654e27be27a85980584effa7b0bc71b6a
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -32,7 +37,7 @@ Requires:       ocaml-rrd-transport-devel%{?_isa}
 The %{name}-devel package contains libraries and signature files for
 developing applications that use %{name}.
 
-%global ocaml_dir    /usr/lib/opamroot/system
+%global ocaml_dir    /usr/lib/opamroot/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 %global build_ocaml_dir %{buildroot}%{ocaml_dir}
@@ -47,10 +52,7 @@ make
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-mkdir -p %{build_ocaml_libdir}
-mkdir -p %{build_ocaml_docdir}
-
-make install OPAM_PREFIX=%{build_ocaml_dir} OPAM_LIBDIR=%{build_ocaml_libdir}
+make install DESTDIR=%{buildroot}
 
 # this is to make opam happy
 mkdir -p %{build_ocaml_libdir}/xapi-rrdd-plugin
@@ -80,6 +82,23 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Tue Jan 29 2019 Christian Lindig <christian.lindig@citrix.com> - 1.8.0-1
+- CA-309024 improve SIGTERM signal handling
+- CA-309024 Use signal numbers from Sys module
+
+* Wed Jan 23 2019 Christian Lindig <christian.lindig@citrix.com> - 1.7.0-1
+- Prepare for Dune 1.6
+
+* Fri Jan 11 2019 Christian Lindig <christian.lindig@citrix.com> - 1.6.0-1
+- Use xapi-rrd; rrd is being deprecated.
+- Use OCaml 4.07 for travis
+
+* Tue Dec 04 2018 Christian Lindig <christian.lindig@citrix.com> - 1.5.0-1
+- Moved from jbuilder to dune and deprecated xcp in favour of xapi-idl.
+
+* Thu Nov 01 2018 Christian Lindig <christian.lindig@citrix.com> - 1.4.0-1
+- Update opam files for Opam 2
+
 * Fri May 04 2018 Christian Lindig <christian.lindig@citrix.com> - 1.3.0-1
 - CP-26583: Remove API call labels for PPX port of Rrdd
 - CP-26583: Remove rpc <-> string conversion for PPX port
