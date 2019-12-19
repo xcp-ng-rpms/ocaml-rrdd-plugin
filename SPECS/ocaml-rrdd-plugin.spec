@@ -1,16 +1,16 @@
 %define debug_package %{nil}
 
 Name:           ocaml-rrdd-plugin
-Version:        1.8.0
-Release:        1%{?dist}
+Version:        1.9.0
+Release:        2%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz) = 96334bf654e27be27a85980584effa7b0bc71b6a
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz) = 228d93b8c84c236cffc781235afcb2dc6cb2b5e9
 
 BuildRequires:  ocaml-ocamldoc
 BuildRequires:  xs-opam-repo
@@ -25,7 +25,7 @@ BuildRequires:  ocaml-rrd-transport-devel
 Plugin library for the XenServer RRD daemon.
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.8.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.8.0#/ocaml-rrdd-plugin-1.8.0.tar.gz) = 96334bf654e27be27a85980584effa7b0bc71b6a
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz) = 228d93b8c84c236cffc781235afcb2dc6cb2b5e9
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -37,7 +37,7 @@ Requires:       ocaml-rrd-transport-devel%{?_isa}
 The %{name}-devel package contains libraries and signature files for
 developing applications that use %{name}.
 
-%global ocaml_dir    /usr/lib/opamroot/ocaml-system
+%global ocaml_dir    %{_opamroot}/ocaml-system
 %global ocaml_libdir %{ocaml_dir}/lib
 %global ocaml_docdir %{ocaml_dir}/doc
 %global build_ocaml_dir %{buildroot}%{ocaml_dir}
@@ -82,6 +82,13 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 1.9.0-2
+- bump packages after xs-opam update
+
+* Mon Jul 29 2019 Christian Lindig <christian.lindig@citrix.com> - 1.9.0-1
+- Factor out local reporter to allow avoiding the libxenctrl dependency
+- Change rpc -> rpclib in opam file
+
 * Tue Jan 29 2019 Christian Lindig <christian.lindig@citrix.com> - 1.8.0-1
 - CA-309024 improve SIGTERM signal handling
 - CA-309024 Use signal numbers from Sys module
