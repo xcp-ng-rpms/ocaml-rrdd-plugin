@@ -2,7 +2,7 @@
 
 Name:           ocaml-rrdd-plugin
 Version:        1.9.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
