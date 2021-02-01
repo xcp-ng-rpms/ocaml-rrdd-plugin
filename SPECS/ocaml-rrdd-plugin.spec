@@ -2,7 +2,7 @@
 
 Name:           ocaml-rrdd-plugin
 Version:        1.9.0
-Release:        5.1%{?dist}
+Release:        5.1.0.ipv6.1%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
@@ -82,6 +82,9 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Thu May 12 2022 Benjamin Reis <benjamin.reis@vates.fr> - 1.9.0-5.1.0.ipv6.1
+- Rebuild for IPv6: for xapi build
+
 * Mon Dec 20 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-5.1
 - Sync with CH 8.2.1
 - *** Upstream changelog ***
