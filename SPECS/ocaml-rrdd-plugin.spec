@@ -2,7 +2,7 @@
 
 Name:           ocaml-rrdd-plugin
 Version:        1.9.0
-Release:        3.3%{?dist}
+Release:        5.1%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL2.1 + OCaml linking exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
@@ -82,8 +82,15 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
-* Thu Sep 02 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-3.3
-- Rebuild for message-switch 1.23.1 from XS82E031
+* Mon Dec 20 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-5.1
+- Sync with CH 8.2.1
+- *** Upstream changelog ***
+- * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.9.0-5
+- - Bump package after xs-opam update
+- * Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 1.9.0-4
+- - bump packages after xs-opam update
+- * Thu Sep 02 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-3.3
+- - Rebuild for message-switch 1.23.1 from XS82E031
 
 * Tue May 18 2021 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-3.2
 - Rebuild for XS82E002 (updated xs-opam-repo, ocaml-xcp-idl, etc.)
