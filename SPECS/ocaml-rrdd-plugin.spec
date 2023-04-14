@@ -1,31 +1,23 @@
-%define debug_package %{nil}
+%global package_speccommit 4035dee79e55154d8fdc4325961ce1926318cbcc
+%global package_srccommit v1.9.1
 
 Name:           ocaml-rrdd-plugin
-Version:        1.9.0
-Release:        5.3%{?dist}
+Version: 1.9.1
+Release: 2.1%{?xsrel}%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
-License:        LGPL2.1 + OCaml linking exception
+License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
-
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz
-
-
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz) = 228d93b8c84c236cffc781235afcb2dc6cb2b5e9
-
+Source0: ocaml-rrdd-plugin-1.9.1.tar.gz
 BuildRequires:  ocaml-ocamldoc
 BuildRequires:  xs-opam-repo
 BuildRequires:  ocaml-xcp-idl-devel
 BuildRequires:  forkexecd-devel
 BuildRequires:  ocaml-rrd-transport-devel
 
-%global _use_internal_dependency_generator 0
-%global __requires_exclude *caml*
-
 %description
 Plugin library for the XenServer RRD daemon.
 
 %package        devel
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/ocaml-rrdd-plugin/archive?at=v1.9.0&format=tar.gz&prefix=ocaml-rrdd-plugin-1.9.0#/ocaml-rrdd-plugin-1.9.0.tar.gz) = 228d93b8c84c236cffc781235afcb2dc6cb2b5e9
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       xs-opam-repo
@@ -82,6 +74,14 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Fri Apr 14 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.1-2.1
+- Sync with hotfix XS82ECU1027
+- *** Upstream changelog ***
+- * Mon Feb 27 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.9.1-2
+- - Change license to match the one in the source repo
+- * Mon Feb 20 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.9.1-1
+- - Same as 1.9.0, koji tooling needed an annotated tag to build
+
 * Wed Oct 12 2022 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.0-5.3
 - Rebuild for security update synced from XS82ECU1019$
 
