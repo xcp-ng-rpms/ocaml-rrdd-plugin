@@ -3,7 +3,7 @@
 
 Name:           ocaml-rrdd-plugin
 Version: 1.9.1
-Release: 2.1%{?xsrel}%{?dist}
+Release: 2.2%{?xsrel}%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
@@ -24,6 +24,10 @@ Requires:       xs-opam-repo
 Requires:       forkexecd-devel%{?_isa}
 Requires:       ocaml-xcp-idl-devel%{?_isa}
 Requires:       ocaml-rrd-transport-devel%{?_isa}
+
+
+# XCP-ng patches
+Patch1000: ocaml-rrdd-plugin-1.9.1-check-page-count-before-writing-payload.backport.patch
 
 %description    devel
 The %{name}-devel package contains libraries and signature files for
@@ -74,6 +78,10 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Thu Apr 27 2023 Benjamin Reis <benjamin.reis@vates.fr> - 1.9.1-2.2
+- Add ocaml-rrdd-plugin-1.9.1-check-page-count-before-writing-payload.backport.patch
+- This fixes gpumon's "not enough memory" warnings in xcp-rrdd-plugins.log
+
 * Fri Apr 14 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 1.9.1-2.1
 - Sync with hotfix XS82ECU1027
 - *** Upstream changelog ***
