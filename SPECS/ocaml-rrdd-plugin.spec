@@ -1,9 +1,9 @@
-%global package_speccommit 4035dee79e55154d8fdc4325961ce1926318cbcc
+%global package_speccommit 0437ceb3b1f6a610774627d5f59253f4cf0e9f30
 %global package_srccommit v1.9.1
 
 Name:           ocaml-rrdd-plugin
 Version: 1.9.1
-Release: 2.2%{?xsrel}%{?dist}
+Release: 7.1%{?xsrel}%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
@@ -24,7 +24,6 @@ Requires:       xs-opam-repo
 Requires:       forkexecd-devel%{?_isa}
 Requires:       ocaml-xcp-idl-devel%{?_isa}
 Requires:       ocaml-rrd-transport-devel%{?_isa}
-
 
 # XCP-ng patches
 Patch1000: ocaml-rrdd-plugin-1.9.1-check-page-count-before-writing-payload.backport.patch
@@ -78,6 +77,20 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Wed Aug 09 2023 Gael Duperrey <gduperrey@vates.fr> - 1.9.1-7.1
+- Sync with hotfix XS82ECU1040
+- *** Upstream changelog ***
+- * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.9.1-7
+- - Bump release and rebuild
+- * Mon Jun 19 2023 Christian Lindig <christian.lindig@citrix.com> - 1.9.1-6
+- - Bump release and rebuild
+- * Thu Jun 08 2023 Christian Lindig <christian.lindig@citrix.com> - 1.9.1-5
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.9.1-4
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.9.1-3
+- - Bump release and rebuild
+
 * Thu Apr 27 2023 Benjamin Reis <benjamin.reis@vates.fr> - 1.9.1-2.2
 - Add ocaml-rrdd-plugin-1.9.1-check-page-count-before-writing-payload.backport.patch
 - This fixes gpumon's "not enough memory" warnings in xcp-rrdd-plugins.log
