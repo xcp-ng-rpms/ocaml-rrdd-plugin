@@ -1,9 +1,9 @@
-%global package_speccommit c99f57c01ff6a1bf4798556cead172fa38d48b31
+%global package_speccommit 76e38cb26a1e5361463698e6c2c2236d4b4e7584
 %global package_srccommit v1.9.1
 
 Name:           ocaml-rrdd-plugin
 Version: 1.9.1
-Release: 17.1%{?xsrel}%{?dist}
+Release: 20.1%{?xsrel}%{?dist}
 Summary:        Plugin library for the XenServer RRD daemon
 License:        LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:            https://github.com/xapi-project/ocaml-rrdd-plugin/
@@ -77,6 +77,17 @@ touch %{build_ocaml_libdir}/xapi-rrdd-plugin/opam.config
 %{ocaml_libdir}/xapi-rrdd-plugin
 
 %changelog
+* Thu Jan 16 2025 Gael Duperrey <gduperrey@vates.tech> - 1.9.1-20.1
+- Rebuild after sync with hotfix XS82ECU1080
+- No source changes: only rebuild for dependencies
+- *** Upstream changelog ***
+- * Fri Dec 13 2024 Christian Lindig <christian.lindig@cloud.com> - 1.9.1-20
+- - Bump release and rebuild
+- * Thu Dec 12 2024 Christian Lindig <christian.lindig@cloud.com> - 1.9.1-19
+- - Bump release and rebuild
+- * Mon Dec 09 2024 Christian Lindig <christian.lindig@cloud.com> - 1.9.1-18
+- - Bump release and rebuild
+
 * Thu Oct 24 2024 Gael Duperrey <gduperrey@vates.tech> - 1.9.1-17.1
 - Rebuild after sync with hotfix XS82ECU1074
 - No source changes: only rebuild for dependencies
